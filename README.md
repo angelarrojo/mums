@@ -5,13 +5,11 @@ Mums
 * Maven 3.0
 * Spring 4.1.6.RELEASE
 * HSQLDB 2.3.2
-* H2 1.4.187
-* Derby 10.11.1.1
 * Java8
 
 ###2. To Run this project locally
 ```shell
-$ git clone 
+$ git clone https://github.com/angelarrojo/ticketea.git
 $ mvn jetty:run
 ```
 Access ```http://localhost:8080/ticketea/```
