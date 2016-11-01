@@ -1,0 +1,12 @@
+/**/.idea
+/**/*.iml
+/**/.classpath
+/**/.project
+/**/.settings
+/**/target
+target
+.project
+.settings
+catalina.base_IS_UNDEFINED
+/.classpath
+.DS_Store
