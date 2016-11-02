@@ -152,16 +152,12 @@ public class ProductResource {
        		int count = menu.containsKey(p.getCategory()) ? menu.get(p.getCategory()) : 0;
        		menu.put(p.getCategory(), count + p.getUnit());
        	}
-       	if (menu.size() > 0)
-       	{
-           	Entry<String, Integer> min = Collections.min(menu.entrySet(), new Comparator<Entry<String, Integer>>() {
-           	    public int compare(Entry<String, Integer> entry1, Entry<String, Integer> entry2) {
-           	        return entry1.getValue().compareTo(entry2.getValue());
-           	    }
-           	});       		
-           	return min.getValue();
-       	}
-       	return 0;
+       	Entry<String, Integer> min = Collections.min(menu.entrySet(), new Comparator<Entry<String, Integer>>() {
+       	    public int compare(Entry<String, Integer> entry1, Entry<String, Integer> entry2) {
+       	        return entry1.getValue().compareTo(entry2.getValue());
+       	    }
+       	});       		
+       	return min.getValue();
 	}
 	
 	private BigDecimal applyDisccount3x2(BigDecimal price3x2, List<ProductModel> productsWithout3x2, List<ProductModel> products) {
@@ -173,9 +169,9 @@ public class ProductResource {
         		{
         			price3x2 = price3x2.add(p.getPrice().multiply( new BigDecimal((p.getUnit()/3)*2)));
         			p.setUnit(p.getUnit()%3);
-        		}
-        		productsWithout3x2.add(p);	
-       		}       		
+        		}        		
+       		}    
+       		productsWithout3x2.add(p);	
     	}
 		return price3x2;
 	}
