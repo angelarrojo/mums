@@ -48,13 +48,13 @@ public class ProductResource {
     	
     	List<ProductModel> products = product.getProducts();
     	List<ProductModel> order = initialOrder(products);    	
-    	BigDecimal calculatePriceApplyDisccount = calculatePriceApplyDisccount(model, products);
+    	BigDecimal calculatePriceApplyDisccount = calculatePriceApplyDisccount(products);
     	model.addAttribute("msg", calculatePriceApplyDisccount);
     	model.addAttribute("products", order);
     	return new ModelAndView("result","productForm",order);
     }
 
-	private BigDecimal calculatePriceApplyDisccount(ModelMap model, List<ProductModel> products) {
+	private BigDecimal calculatePriceApplyDisccount(List<ProductModel> products) {
 		List<ProductModel> productsWithout3x2 = new ArrayList<ProductModel>(); 
     	BigDecimal price3x2 = new BigDecimal(0).setScale(2, BigDecimal.ROUND_FLOOR);       	
     	BigDecimal priceMenu = new BigDecimal(0).setScale(2, BigDecimal.ROUND_FLOOR);
@@ -142,12 +142,16 @@ public class ProductResource {
        		int count = menu.containsKey(p.getCategory()) ? menu.get(p.getCategory()) : 0;
        		menu.put(p.getCategory(), count + p.getUnit());
        	}
-       	Entry<String, Integer> min = Collections.min(menu.entrySet(), new Comparator<Entry<String, Integer>>() {
-       	    public int compare(Entry<String, Integer> entry1, Entry<String, Integer> entry2) {
-       	        return entry1.getValue().compareTo(entry2.getValue());
-       	    }
-       	});
-       	return min.getValue();
+       	if (menu.size() > 0)
+       	{
+           	Entry<String, Integer> min = Collections.min(menu.entrySet(), new Comparator<Entry<String, Integer>>() {
+           	    public int compare(Entry<String, Integer> entry1, Entry<String, Integer> entry2) {
+           	        return entry1.getValue().compareTo(entry2.getValue());
+           	    }
+           	});       		
+           	return min.getValue();
+       	}
+       	return 0;
 	}
 	
 	private BigDecimal applyDisccount3x2(BigDecimal price3x2, List<ProductModel> productsWithout3x2, List<ProductModel> products) {
