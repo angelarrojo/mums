@@ -32,6 +32,16 @@
 			</c:forEach>			
 		</table>
 <h1>El precio total es: ${msg}</h1>
+
+<form:form method="GET" action="redirect">
+<table>
+    <tr>
+    <td>
+    <input type="submit" value="Init Page"/>
+    </td>
+    </tr>
+</table>  
+</form:form>
 </body>
 </html>
 

@@ -36,10 +36,7 @@ public class ProductResource {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView welcome(Model model) {
 
-		List<Product> products = productDao.findAll();
-		ProductForm productForm = convertProductsModel(products);
-		model.addAttribute("products", productForm);
-		return new ModelAndView("welcome","productForm",productForm);
+		return init(model);
 	}
 	
     @RequestMapping(value = "/result", method = RequestMethod.POST)
@@ -54,6 +51,19 @@ public class ProductResource {
     	return new ModelAndView("result","productForm",order);
     }
 
+    @RequestMapping(value = "/redirect", method = RequestMethod.GET)
+    public ModelAndView redirect(Model model) {
+      
+    	return init(model);
+    }   
+    
+	private ModelAndView init(Model model) {
+		List<Product> products = productDao.findAll();
+		ProductForm productForm = convertProductsModel(products);
+		model.addAttribute("products", productForm);
+		return new ModelAndView("welcome","productForm",productForm);
+	}    
+    
 	private BigDecimal calculatePriceApplyDisccount(List<ProductModel> products) {
 		List<ProductModel> productsWithout3x2 = new ArrayList<ProductModel>(); 
     	BigDecimal price3x2 = new BigDecimal(0).setScale(2, BigDecimal.ROUND_FLOOR);       	
