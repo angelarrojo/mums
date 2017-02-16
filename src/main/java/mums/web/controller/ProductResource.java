@@ -79,39 +79,6 @@ public class ProductResource {
 
        	for (ProductModel p: productsWithout3x2)
        	{       		
-       		if (numberMenuPrincipal > 0 && PRINCIPAL.equals(p.getCategory()))
-       		{
-           		for (int j=0; j<p.getUnit(); j++)
-           		{       			
-           			if (numberMenuPrincipal > 0)
-           			{
-           				numberMenuPrincipal = numberMenuPrincipal -1;
-           				priceMenu = addMenuProduct(priceMenu, p);
-           			}
-           		}
-       		}
-       		else if (numberMenuDessert > 0 && DESSERT.equals(p.getCategory()))
-       		{
-           		for (int j=0; j<p.getUnit(); j++)
-           		{       			
-           			if (numberMenuDessert > 0)
-           			{
-           				priceMenu = addMenuProduct(priceMenu, p);
-           				numberMenuDessert = numberMenuDessert -1;
-           			}
-           		}
-       		}
-       		else if (numberMenuDrink > 0 && DRINK.equals(p.getCategory()))
-       		{
-           		for (int j=0; j<p.getUnit(); j++)
-           		{       			
-           			if (numberMenuDrink > 0)
-           			{
-           				priceMenu = addMenuProduct(priceMenu, p);
-           				numberMenuDrink = numberMenuDrink -1;
-           			}
-           		}           		
-       		}
        		priceWithoutDisccount = addProductWithoutDisccount(priceWithoutDisccount, p);
        	}    	       	    	
     	return totalPrice(price3x2, priceMenu, priceWithoutDisccount);

@@ -18,3 +18,8 @@ Access ```http://localhost:8080/mums/```
 1. ```$ mvn eclipse:eclipse```
 2. Import into Eclipse via **existing projects into workspace** option.
 3. Done.
+
+
+### Products
+### Disscount Price
+3x2: If you buy 3 products the same type, you pay 2 and buy 3
