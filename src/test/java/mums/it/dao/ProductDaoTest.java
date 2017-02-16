@@ -1,4 +1,4 @@
-package mums.ticketea.dao;
+package mums.it.dao;
 
 import java.util.List;
 
@@ -9,6 +9,10 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+
+import mums.dao.Product;
+import mums.dao.ProductDao;
+import mums.dao.ProductDaoImpl;
 
 import org.junit.Assert;
 

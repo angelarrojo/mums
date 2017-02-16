@@ -1,4 +1,4 @@
-package mums.ticketea.model;
+package mums.model;
 
 import java.util.List;
 

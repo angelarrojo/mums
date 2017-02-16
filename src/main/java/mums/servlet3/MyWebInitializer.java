@@ -1,12 +1,12 @@
-package mums.ticketea.servlet3;
+package mums.servlet3;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import mums.ticketea.config.SpringRootConfig;
-import mums.ticketea.config.SpringWebConfig;
+import mums.config.SpringRootConfig;
+import mums.config.SpringWebConfig;
 
 public class MyWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 

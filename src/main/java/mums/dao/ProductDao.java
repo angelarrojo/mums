@@ -1,4 +1,4 @@
-package mums.ticketea.dao;
+package mums.dao;
 
 import java.util.List;
 

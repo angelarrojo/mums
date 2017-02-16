@@ -1,4 +1,4 @@
-package mums.ticketea.config;
+package mums.config;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;

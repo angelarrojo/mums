@@ -1,4 +1,4 @@
-package mums.ticketea.config.db;
+package mums.config.db;
 
 import javax.sql.DataSource;
 

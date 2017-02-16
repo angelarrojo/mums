@@ -1,4 +1,4 @@
-package mums.ticketea.config;
+package mums.config;
  
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

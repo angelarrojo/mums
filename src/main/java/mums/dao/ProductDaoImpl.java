@@ -1,4 +1,4 @@
-package mums.ticketea.dao;
+package mums.dao;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;

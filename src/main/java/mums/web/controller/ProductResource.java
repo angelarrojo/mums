@@ -1,4 +1,4 @@
-package mums.ticketea.web.controller;
+package mums.web.controller;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import mums.ticketea.dao.Product;
-import mums.ticketea.dao.ProductDao;
-import mums.ticketea.model.ProductForm;
-import mums.ticketea.model.ProductModel;
+import mums.dao.Product;
+import mums.dao.ProductDao;
+import mums.model.ProductForm;
+import mums.model.ProductModel;
 
 @Controller
 public class ProductResource {
