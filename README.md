@@ -9,10 +9,10 @@ Mums
 
 ###2. To Run this project locally
 ```shell
-$ git clone https://github.com/angelarrojo/ticketea.git
+$ git clone https://github.com/angelarrojo/mums.git
 $ mvn jetty:run
 ```
-Access ```http://localhost:8080/ticketea/```
+Access ```http://localhost:8080/mums/```
 
 ###3. To import this project into Eclipse IDE
 1. ```$ mvn eclipse:eclipse```

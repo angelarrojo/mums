@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
  
 @EnableWebMvc
 @Configuration
-@ComponentScan({ "mums.ticketea.web" })
+@ComponentScan({ "mums.web" })
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
  
 	@Override
