@@ -5,7 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resource"/>
-        <property name="context-root" value="ticketea"/>
         <property name="java-output-path" value="/ticketea/target/classes"/>
+        <property name="context-root" value="mums"/>
     </wb-module>
 </project-modules>
