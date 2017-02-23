@@ -2,12 +2,7 @@ package mums.web.controller;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,9 +22,6 @@ import mums.model.ProductModel;
 @Controller
 public class ProductResource {
 
-	private static final String DRINK = "DRINK";
-	private static final String DESSERT = "DESSERT";
-	private static final String PRINCIPAL = "PRINCIPAL";
 	@Autowired
 	ProductDao productDao;
 	
@@ -71,11 +63,6 @@ public class ProductResource {
     	BigDecimal priceWithoutDisccount = new BigDecimal(0).setScale(2, BigDecimal.ROUND_FLOOR);       	
        	
        	price3x2 = applyDisccount3x2(price3x2, productsWithout3x2, products);  
-       	
-       	int numberOfMenus = howManyCompleteMenu(productsWithout3x2);
-       	int numberMenuPrincipal = numberOfMenus;
-       	int numberMenuDessert = numberOfMenus;
-       	int numberMenuDrink = numberOfMenus;
 
        	for (ProductModel p: productsWithout3x2)
        	{       		
@@ -112,21 +99,6 @@ public class ProductResource {
 		return productForm;
 	}
 	
-	private int howManyCompleteMenu(List<ProductModel> products) {
-		Map<String, Integer> menu = new HashMap<String, Integer>();
-       	for(ProductModel p: products)
-       	{
-       		int count = menu.containsKey(p.getCategory()) ? menu.get(p.getCategory()) : 0;
-       		menu.put(p.getCategory(), count + p.getUnit());
-       	}
-       	Entry<String, Integer> min = Collections.min(menu.entrySet(), new Comparator<Entry<String, Integer>>() {
-       	    public int compare(Entry<String, Integer> entry1, Entry<String, Integer> entry2) {
-       	        return entry1.getValue().compareTo(entry2.getValue());
-       	    }
-       	});       		
-       	return min.getValue();
-	}
-	
 	private BigDecimal applyDisccount3x2(BigDecimal price3x2, List<ProductModel> productsWithout3x2, List<ProductModel> products) {
 		for(ProductModel p: products)
     	{
@@ -145,17 +117,6 @@ public class ProductResource {
 	
 	private BigDecimal totalPrice(BigDecimal price3x2, BigDecimal priceMenu, BigDecimal priceWithoutDisccount) {
 		return price3x2.add(priceMenu.multiply(new BigDecimal(0.8)).add(priceWithoutDisccount)).setScale(2, BigDecimal.ROUND_FLOOR);
-	}
-
-	private BigDecimal addMenuProduct(BigDecimal priceMenu, ProductModel p) {
-		p.setUnit(p.getUnit()-1);
-		priceMenu = sumPriceProductWithMenu(priceMenu, p);
-		return priceMenu;
-	}
-
-	private BigDecimal sumPriceProductWithMenu(BigDecimal priceMenu, ProductModel p) {
-		priceMenu = priceMenu.add(p.getPrice());
-		return priceMenu;
 	}
 
 	private BigDecimal addProductWithoutDisccount(BigDecimal priceWithoutDisccount, ProductModel p) {
